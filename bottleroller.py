@@ -1,4 +1,3 @@
-#from bottle import route, run, template
 from bottle import Bottle, template, request
 import roll
 
@@ -44,3 +43,10 @@ def formhandler():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# Found bugs:
+# - typing help and help() in the form stalls the server
+# - no input in the form results in an error
+
+#TODO:
+# - Formatting of result
