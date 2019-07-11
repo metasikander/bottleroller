@@ -13,7 +13,7 @@ index_html = '''
             <ul>
                 <li>Dice: <input name='dice'>
                 </li>
-            </ul><input type='submit' value='Submit Form'>
+            </ul><input type='submit' value='Throw Dice'>
         </fieldset>
     </form>
 
@@ -42,7 +42,7 @@ def formhandler():
     return template(index_html, result=result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='localhost', port=8080, server='gunicorn', workers=4, debug=True)
 
 # Found bugs:
 # - typing help and help() in the form stalls the server
