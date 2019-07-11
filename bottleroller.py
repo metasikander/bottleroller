@@ -20,6 +20,20 @@ index_html = '''
     <p>{{result}}</p>
 
   </body>
+  
+  <style>
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+
+  <div class="footer">
+    <p>Based on Dice-Roller by <a href="https://gitlab.xirion.net/vroest/dice-roller">Victor Roest</a></p>
+  </div> 
 </html>
 '''
 
@@ -42,7 +56,7 @@ def formhandler():
     return template(index_html, result=result)
 
 if __name__ == '__main__':
-    app.run(host='localhost', port=8080, server='gunicorn', workers=4, debug=True)
+    app.run(host='0.0.0.0', port=8080, server='gunicorn', workers=4)
 
 # Found bugs:
 # - typing help and help() in the form stalls the server
