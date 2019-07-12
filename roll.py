@@ -3,14 +3,22 @@
 import sys
 import re
 import random
+from rdoclient_py3 import RandomOrgClient
 
-try:
-    # Use the system PRNG if possible
-    random = random.SystemRandom()
-except NotImplementedError:
-    import warnings
-    warnings.warn("A secure pseudo-random number generator is not available "
-                  "on your system. Falling back to Mersenne Twister.")  # Mersenne twister is the default Python PRNG
+api = "64d3f180-7d8d-4abe-a1d0-e9800d253316"
+
+
+# Use random.org to seed the randomness if the api-key has been supplied
+if api != None:
+    random.seed(RandomOrgClient(api).generate_integers(1, 0, 1000000000)[0])
+else:
+    try:
+        # Use the system PRNG if possible
+        random = random.SystemRandom()
+    except NotImplementedError:
+        import warnings
+        warnings.warn("A secure pseudo-random number generator is not available "
+                      "on your system. Falling back to Mersenne Twister.")  # Mersenne twister is the default Python PRNG
 
 
 # Takes no input and returns the results for a DnD 5e stats roll (4d6 drop lowest)
@@ -51,7 +59,7 @@ def dice_roller(input_text):
 
         # Actually rolling the dice
         for t in range(times):
-            roll = random.randrange(1, sides+1)
+            roll = random.randrange(1, sides + 1)
             rolls.append(str(roll) + "/" + str(sides))
             result += roll
 
@@ -114,3 +122,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# TODO: set it up so that it runs until inerrupted, loop back to the beginning after every roll, and add an api-key to random.org

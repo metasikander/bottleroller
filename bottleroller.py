@@ -74,3 +74,5 @@ if __name__ == '__main__':
 #TODO:
 # - Formatting of result: split out the result from the throw
 # - Add history
+# - Make true randomness from random.org work
+# - Add direction roll
