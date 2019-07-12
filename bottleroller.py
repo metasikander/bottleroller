@@ -68,6 +68,8 @@ if __name__ == '__main__':
 
 # Found bugs:
 # - no input in the form results in an error
+# - wrong formating (2d20 +5 d8 works in cli)
 
 #TODO:
-# - Formatting of result
+# - Formatting of result: split out the result from the throw
+# - Add history
