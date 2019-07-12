@@ -24,7 +24,7 @@ index_html = '''
   <body>
     <form method="post" action="/">
         <fieldset>
-            <legend>SAMPLE FORM</legend>
+            <legend>Dice Thrower</legend>
             <ul>
                 <li>Dice: <input name='dice'>
                 </li>
@@ -41,7 +41,7 @@ index_html = '''
 
   <div class="footer">
     <p>Based on Dice-Roller by <a href="https://gitlab.xirion.net/vroest/dice-roller">Victor Roest</a><br>
-    <a href="https://github.com/metasikander/bottleroller">Github page</a></p>
+    <a href="https://github.com/metasikander/bottleroller">Github project page</a></p>
   </div> 
 </html>
 '''
@@ -50,7 +50,7 @@ app = Bottle()
 
 @app.route('/')
 def index():
-    """Home Page"""
+    """Main Page"""
 
     return template(index_html, result="Result here", throw=None)
 
