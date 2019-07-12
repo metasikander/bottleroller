@@ -15,6 +15,7 @@ index_html = '''
           bottom: 0;
           width: 100%;
           text-align: center;
+          position: relative;
         }
 
         p {font-family: Arial, Helvetica, sans-serif;}
