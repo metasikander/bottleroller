@@ -122,5 +122,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# TODO: set it up so that it runs until inerrupted, loop back to the beginning after every roll, and add an api-key to random.org

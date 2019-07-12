@@ -31,11 +31,13 @@ index_html = '''
             </ul><input type='submit' value='Throw Dice'>
         </fieldset>
     </form>
-    
+    <input type="button" name='dir' method="post" action="/" value='Direction Roll'>
+
     <p><b>Example: 2d8 +6 +d8</b></p>
     
     <p><b>Your Throw:</b> {{throw}}</p>
     <p>{{result}}</p>
+    <p>{{direction}}</p>
 
   </body>
 
@@ -52,17 +54,19 @@ app = Bottle()
 def index():
     """Home Page"""
 
-    return template(index_html, result="Result here", throw=None)
+    return template(index_html, result="Result here", throw=None, direction=None)
 
 @app.route('/', method="POST")
 def formhandler():
     """Handle the form submission"""
 
     dice = request.forms.get('dice')
+    dir = request.forms.get('dir')
 
     result = "Result: " + str(roll.dice_roller(dice))
+    direction = "Direction: " + str(roll.dir_roll(dir))
 
-    return template(index_html, result=result, throw=dice)
+    return template(index_html, result=result, throw=dice, direction=direction)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, server='gunicorn', workers=4, debug=True)
