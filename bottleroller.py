@@ -80,3 +80,4 @@ if __name__ == '__main__':
 # - Add history
 # - Make true randomness from random.org work
 # - Add direction roll
+# - Add reroll-button
