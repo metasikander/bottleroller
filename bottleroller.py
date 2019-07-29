@@ -74,3 +74,4 @@ if __name__ == '__main__':
 #TODO:
 # - Formatting of result: split out the result from the throw
 # - Add history
+# - Make it possible to do a roll from google sheets
