@@ -30,8 +30,8 @@ index_html = '''
                 </li>
             </ul><input type='submit' value='Throw Dice'>
         </fieldset>
+    <INPUT TYPE="button" onClick="history.go(0)" VALUE="Reroll">
     </form>
-    
     <p><b>Example: 2d8 +6 +d8</b></p>
     
     <p><b>Your Throw:</b> {{throw}}</p>
@@ -73,5 +73,6 @@ if __name__ == '__main__':
 
 #TODO:
 # - Formatting of result: split out the result from the throw
+# - Add reroll button (and/or reload page without question)
 # - Add history
 # - Make it possible to do a roll from google sheets
